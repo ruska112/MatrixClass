@@ -4,6 +4,9 @@ class matrix2d
         int nrows;
         int ncolumns;
         double **array;
+
+        // Обработчик ошибок
+        void ErrorHandler(int) const;
     
     public:
         // Конструктор с параметрами
@@ -26,7 +29,4 @@ class matrix2d
 
         // Геттер кол-ва столбцов
         int GetNcolumns() const;
-
-        // Обработчик ошибок
-        friend void ErrorHandler(int);
 };

@@ -1,7 +1,7 @@
 #include <iostream>
 #include "matrix.h"
 
-void ErrorHandler(int error)
+void matrix2d::ErrorHandler(int error) const
 {
     if (error == -1)
     {
