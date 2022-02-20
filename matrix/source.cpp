@@ -1,5 +1,5 @@
 #include <iostream>
-#include "matrix.h"
+#include "matrix.hpp"
 
 void matrix2d::ErrorHandler(int error) const
 {
