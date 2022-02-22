@@ -1,3 +1,4 @@
+#include <cstdio>
 #include <iostream>
 #include "matrix.hpp"
 
@@ -153,12 +154,48 @@ int matrix2d::GetNcolumns() const
     return ncolumns;
 }
 
+void PrintMatrix(const matrix2d& t_m)
+{
+    int ml, mc, i, j;
+    double tmp2;
+
+    ml = t_m.GetNlines();
+    mc = t_m.GetNcolumns();
+
+    for (i = 0; i < ml; i++)
+    {
+        for (j = 0; j < mc; j++)
+        {
+            t_m.GetIJ(i, j, tmp2);
+            printf(" %5.2lf ", tmp2);
+        }
+        printf("\n");
+    }
+}
+
 int main()
 {
     matrix2d m0(3, 3);
     matrix2d m1(m0);
 
-    m0.SetIJ(1, 1, 34);
+    int m0l, m0c, i, j;
+    double tmp1;
+
+    m0l = m0.GetNlines();
+    m0c = m0.GetNcolumns();
+
+    for (i = 0; i < m0l; i++)
+    {
+        for (j = 0; j < m0c; j++)
+        {
+            printf("[%d][%d] = ", i, j);
+            scanf("%lf", &tmp1);
+            m0.SetIJ(i, j, tmp1);
+        }
+        
+    }
+
+    PrintMatrix(m0);
 
     return 0;
 }

@@ -29,4 +29,6 @@ class matrix2d
 
         // Геттер кол-ва столбцов
         int GetNcolumns() const;
+
+        friend void PrintMatrix(const matrix2d&);
 };
