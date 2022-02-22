@@ -3,7 +3,11 @@
 
 void matrix2d::ErrorHandler(int error) const
 {
-    if (error == 1)
+    if (error == 0)
+    {
+        printf("Ошибка копирования матрциы, память на копируемую матрицу не выделена!\n");
+    }
+    else if (error == 1)
     {
         printf("Ошибка изменения значения элемента IJ! i < 0\n");
     }
@@ -56,18 +60,25 @@ matrix2d::matrix2d(int _nrows, int _ncolumns)
 
 matrix2d::matrix2d(const matrix2d& _matrix)
 {
-    nrows = _matrix.nrows;
-    ncolumns = _matrix.ncolumns;
-    array = new double *[nrows];
-
-    int i, j;
-    for(i = 0; i < 0; i++)
+    if (_matrix.array != NULL) 
     {
-        array[i] = new double[ncolumns];
-        for(j = 0; j < 0; j++)
+            nrows = _matrix.nrows;
+        ncolumns = _matrix.ncolumns;
+        array = new double *[nrows];
+
+        int i, j;
+        for(i = 0; i < 0; i++)
         {
-            array[i][j] = _matrix.array[i][j];
+            array[i] = new double[ncolumns];
+            for(j = 0; j < 0; j++)
+            {
+                array[i][j] = _matrix.array[i][j];
+            }
         }
+    }
+    else 
+    {
+        ErrorHandler(0);
     }
 }
 
